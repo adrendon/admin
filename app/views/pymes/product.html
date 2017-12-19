@@ -1,0 +1,77 @@
+<md-card>
+    <md-card-header>
+        <md-card-header-text>
+            <span class="md-title">Productos</span>
+            <span class="md-subhead">Pymes</span>
+        </md-card-header-text>
+    </md-card-header>
+    <md-card-content class="product">
+        <form name="productForm">
+            <md-input-container class="md-block">
+                <label>Titulo</label>
+                <input name="name" ng-model="product.name" required>
+            </md-input-container>
+            <md-input-container class="md-block">
+                <label>URL Imagen</label>
+                <input name="name" ng-model="product.image" required>
+            </md-input-container>
+            <div layout="row">
+                <md-input-container flex>
+                    <label>Sector</label>
+                    <md-select ng-model="product.sector" required multiple>
+                        <md-option ng-repeat="sector in getSector" ng-value="sector.id">{{sector.name}}</md-option>
+                    </md-select>
+                </md-input-container>
+                <md-input-container flex>
+                    <label>Rango</label>
+                    <md-select ng-model="product.range" required multiple>
+                        <md-option ng-repeat="range in getRange" ng-value="range.id">{{range.name}}</md-option>
+                    </md-select>
+                </md-input-container>
+                <md-input-container flex>
+                    <label>Productos</label>
+                    <md-select ng-model="product.related" multiple>
+                        <md-option ng-repeat="item in getProducts" ng-value="item.id">{{item.name}}</md-option>
+                    </md-select>
+                </md-input-container>
+            </div>
+            <md-input-container class="md-block">
+                <label for="bodyContent">Ingresa el contenido del producto:</label>
+                <br>
+                <br>
+                <div ckeditor="options" ng-model="product.body"></div>
+            </md-input-container>
+            <md-input-container class="md-block">
+                <label>URL Página</label>
+                <input name="name" ng-model="product.pageurl" required>
+            </md-input-container>
+            <md-card-actions class="md-block" layout="row" layout-align="end center">
+                <md-button type="submit" class="md-raised md-primary" ng-click="save(productForm)" ng-disabled="!productForm.$valid" ng-hide="isUpdate">Guardar</md-button>
+                <md-button type="submit" class="md-raised md-primary" ng-click="updateItem(productForm)" ng-disabled="!productForm.$valid"
+                    ng-show="isUpdate">Actualizar</md-button>
+            </md-card-actions>
+        </form>
+    </md-card-content>
+</md-card>
+
+<md-card>
+    <md-card-header>
+        <md-card-header-text>
+            <span class="md-title">Productos</span>
+        </md-card-header-text>
+    </md-card-header>
+    <md-card-content>
+        <md-list-item ng-repeat="item in getProducts" class="noright listNeed">
+            <md-subheader class="md-title">{{item.name}}</md-subheader>
+            <div flex layout-align="end center" layout="row">
+                <md-button class="md-fab btn-white md-raised" ng-click="edit(item)">
+                    <md-icon class="material-icons">&#xE3C9;</md-icon>
+                </md-button>
+                <md-button class="md-fab btn-white md-raised" ng-click="delete(item.$id)">
+                    <md-icon class="material-icons">&#xE872;</md-icon>
+                </md-button>
+            </div>
+            <md-divider></md-divider>
+        </md-list-item>
+    </md-card-content>
+</md-card>

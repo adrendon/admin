@@ -1,0 +1,12 @@
+{
+  "name": "bancolombia-admin",
+  "version": "1.0.0",
+  "dependencies": {
+    "angular": "^1.6.2",
+    "angular-route": "^1.5.8",
+    "angular-material": "^1.1.4",
+    "firebase": "3.4.0",
+    "angularfire": "2.1.0",
+    "angular-ckeditor": "^1.0.3"
+  }
+}

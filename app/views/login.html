@@ -1,0 +1,30 @@
+<div id="login">
+    <form class="form login" name="formLogin">
+        <div class="field">
+            <label><i class="material-icons">&#xE55A;</i></label>
+            <input type="text" name="username" placeholder="Usuario" required ng-model="user.email">
+        </div>
+        <div class="field">
+            <label><i class="material-icons">&#xE897;</i></label>
+            <input type="password" name="password" placeholder="Contrase&ntilde;a" required ng-model="user.password">
+        </div>
+        <div class="field">
+            <md-button class="md-raised admin-button md-primary" type="submit" ng-click="login(formLogin, user)">Ingresar</md-button>
+        </div>
+    </form>
+</div>
+
+<style>
+    html {
+        box-sizing: border-box;
+        font-size: 100%;
+        height: 100%;
+    }
+    body {
+        position: absolute;
+        top: 0;
+        width: 100vw;
+        height: 100vh;
+        overflow: hidden;
+    }
+</style>

@@ -1,0 +1,52 @@
+<md-card>
+    <md-card-header>
+        <md-card-header-text>
+            <span class="md-title">Sectores</span>
+            <span class="md-subhead">Pymes</span>
+        </md-card-header-text>
+    </md-card-header>
+    <md-card-content>
+        <form name="sectorForm">
+            <md-input-container class="md-block">
+                <label>Sector</label>
+                <input name="sector" ng-model="sector.name" required>
+            </md-input-container>
+            <md-input-container class="md-block">
+                <label>Url Icono</label>
+                <input name="icon" ng-model="sector.icono" required>
+            </md-input-container>
+            <md-input-container class="md-block">
+                <label for="bodyContent">Ingresa el contenido del sector:</label>
+                <br><br>
+                <div ckeditor="options" ng-model="sector.body"></div>
+            </md-input-container>
+
+            <md-card-actions class="md-block" layout="row" layout-align="end center">
+                <md-button type="submit" class="md-raised md-primary" ng-click="save(sectorForm)" ng-disabled="!sectorForm.$valid" ng-hide="isUpdate">Guardar</md-button>
+                <md-button type="submit" class="md-raised md-primary" ng-click="updateItem(sectorForm)" ng-disabled="!sectorForm.$valid" ng-show="isUpdate">Actualizar</md-button>
+            </md-card-actions>
+        </form>
+    </md-card-content>
+</md-card>
+
+<md-card>
+    <md-card-header>
+        <md-card-header-text>
+            <span class="md-title">Sectores</span>
+        </md-card-header-text>
+    </md-card-header>
+    <md-card-content>
+        <md-list-item ng-repeat="sector in getSector" class="noright listNeed">
+            <md-subheader class="md-title">{{sector.name}}</md-subheader>
+            <div flex layout-align="end center" layout="row">
+                <md-button class="md-fab btn-white md-raised" ng-click="edit(sector)">
+                    <md-icon class="material-icons">&#xE3C9;</md-icon>
+                </md-button>
+                <md-button class="md-fab btn-white md-raised" ng-click="delete(sector.$id)">
+                    <md-icon class="material-icons">&#xE872;</md-icon>
+                </md-button>
+            </div>
+            <md-divider></md-divider>
+        </md-list-item>
+    </md-card-content>
+</md-card>

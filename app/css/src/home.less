@@ -1,0 +1,129 @@
+
+@mobile:      ~"only screen and (max-width: 529px)";
+@tablet:      ~"only screen and (min-width: 530px) and (max-width: 949px)";
+@desktop:     ~"only screen and (min-width: 950px) and (max-width: 1199px)";
+@desktop-xl:  ~"only screen and (min-width: 1200px)";
+
+// Colores
+@blue: #00448c;
+@yellow: #ffd200;
+@gray: #595959;
+@white: #ffffff;
+
+#loaderComponent {
+    background: url(../img/loading.svg);
+    height: 30px;
+    width: 120px;
+    margin: 0 auto;
+    margin-top: 20%;
+}
+#shadow {
+    height: 100%;
+    height: 100vh;
+    min-height: 100vh;
+    width: 100%;
+    position: fixed;
+    top: 0;
+    opacity: .9;
+	background-color: rgba(43, 99, 214, 0.7);
+    z-index: 50000;
+}
+body {
+    height: auto;
+    background-color: #EEEEEE;
+    font-family: 'Nunito';
+}
+md-whiteframe {
+    background: #fff;
+}
+#content {
+    padding: 24px;
+}
+md-sidenav {
+    min-height: 100vh;
+    .material-icons {
+        font-size: 30px;
+    }
+    md-toolbar {
+        background-color: @blue !important;
+        md-icon{
+            width: 40px;
+        }
+    }
+    md-content{
+        .md-subheader {
+            font-size: 18px;
+            color: @gray !important;
+        }
+        md-list{
+            color: @blue;
+            md-list-item{
+                .md-body-2 {
+                    font-size: 16px;
+                    padding-left: 20px;
+                }
+            }
+        }
+    }
+}
+.main{
+    md-toolbar {
+        background-color: @blue !important;
+    }
+    md-card-header-text{
+        .md-subhead{
+            padding-left: 2px;
+        }
+    }
+    form{
+        .errorMessage{
+            color:red;
+            margin: 20px 2px;
+        }
+    }
+    .listNeed{
+        .md-subheader-content{
+            color: #00448c;
+        }
+        md-chips .md-chips {
+            box-shadow: none;
+        }
+    }
+}
+.btn-yellow{
+    background: @yellow !important;
+    color: @blue;
+    md-icon.material-icons{
+        color: @blue !important;
+    }
+}
+.btn-white{
+    background: @white !important;
+    border: 1px solid #9E9E9E;
+    box-shadow: none;
+    color: @blue;
+    md-icon.material-icons{
+        color: @blue !important;
+    }
+}
+.md-subheader.md-default-theme, .md-subheader{
+    background: transparent;
+}
+.md-title {
+   font-size: 26px;
+   font-weight: 600;
+}
+.md-body-2 {
+    font-size: 18px;
+}
+.md-chips{
+    .md-chip-input-container{
+        width: 100%;
+        &.chipsClear{
+            width: auto;
+        }
+        input{
+            width: 100%;
+        }
+    }
+}

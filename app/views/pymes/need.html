@@ -1,0 +1,61 @@
+<md-card>
+    <md-card-header>
+        <md-card-header-text>
+            <span class="md-title">Necesito</span>
+            <span class="md-subhead">Pymes</span>
+        </md-card-header-text>
+    </md-card-header>
+    <md-card-content>
+        <form name="needForm">
+            <div layout="row">
+                <md-input-container class="md-block" flex>
+                    <label>Yo necesito</label>
+                    <input name="iNeed" ng-model="need.name" required>
+                </md-input-container>
+                <md-input-container flex>
+                    <label>Productos</label>
+                    <md-select ng-model="need.product" multiple>
+                        <md-option ng-value="item.id" ng-repeat="item in getProducts">{{item.name}}</md-option>
+                    </md-select>
+                </md-input-container>
+            </div>
+            <div class="md-block">
+                <md-chips ng-model="need.for" md-separator-keys="keys" placeholder="Ingresa el 'para'" secondary-placeholder="Se separa por ',' o al presionar un 'enter'"></md-chips>
+                <div ng-hide="need.for.length > 0" class="errorMessage">
+                    Debes agregar al menos uno.
+                </div>
+            </div>
+            <br>
+            <md-card-actions class="md-block" layout="row" layout-align="end center">
+                <md-button type="submit" class="md-raised md-primary" ng-click="save(needForm)" ng-disabled="!needForm.$valid || !need.for.length" ng-hide="isUpdate">Guardar</md-button>
+                <md-button type="submit" class="md-raised md-primary" ng-click="updateNeed(needForm)" ng-disabled="!needForm.$valid || !need.for.length" ng-show="isUpdate">Actualizar</md-button>
+            </md-card-actions>
+        </form>
+    </md-card-content>
+</md-card>
+
+<md-card>
+    <md-card-header>
+        <md-card-header-text>
+            <span class="md-title">Necesito</span>
+        </md-card-header-text>
+    </md-card-header>
+    <md-card-content>
+        <md-list-item ng-repeat="need in getNeed" class="noright listNeed">
+            <md-subheader class="md-title">{{need.name}}</md-subheader>
+            <md-chips ng-repeat="for in need.for" class="chipsClear">
+                <md-chip>{{for}}</md-chip>
+            </md-chips>
+            <div flex layout-align="end center" layout="row">
+                <md-button class="md-fab btn-white md-raised" ng-click="edit(need)">
+                    <md-icon class="material-icons">&#xE3C9;</md-icon>
+                </md-button>
+                <md-button class="md-fab btn-white md-raised" ng-click="delete(need.$id)">
+                    <md-icon class="material-icons">&#xE872;</md-icon>
+                </md-button>
+            </div>
+            
+            <md-divider></md-divider>
+        </md-list-item>
+    </md-card-content>
+</md-card>
